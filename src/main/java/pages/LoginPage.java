@@ -19,7 +19,8 @@ public class LoginPage {
     private String loginBtnPath = "//div[@data-test-id=\"registerFormSubmitButton\"]/button";
     private By profileId = By.xpath("//div[@data-test-id=\"header-profile\"]");
     private By loginButton = By.xpath(loginBtnPath);
-//    private By googleLoginBtnPath = By.xpath("//div[@id=\"container\"]/div");
+    private By fbLoginBtnPath = By.xpath("//div[@data-test-id = \"facebook-connect-button\"]/button");
+    private By googleLoginBtnPath = By.xpath("//div[@data-test-id = \"google-connect-button\"]");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -46,33 +47,44 @@ public class LoginPage {
     }
 
     /**
+     * TC_2.2
+     * Login with fB
+     */
+    public void clickFbBtn(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(fbLoginBtnPath));
+        driver.findElement(fbLoginBtnPath).click();
+    }
+
+    /**
      * TC_2.3
      * Login with google
      */
-//    public LoginWithGooglePage clickGoogleBtn() {//Store the ID of the original window
-////        String originalWindow = driver.getWindowHandle();
-////
-//////      Check we don't have other windows open already
-////        assert driver.getWindowHandles().size() == 1;
-//
+    /*public LoginWithGooglePage clickGoogleBtn() {//Store the ID of the original window
+        String originalWindow = driver.getWindowHandle();
+
+//      Check we don't have other windows open already
+        assert driver.getWindowHandles().size() == 1;
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(googleLoginBtnPath));
+
+        driver.findElement(googleLoginBtnPath).click();
+
+        //Wait for the new window or tab
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(googleLoginBtnPath));
-//
-//        driver.findElement(googleLoginBtnPath).click();
-//
-//        //Wait for the new window or tab
-////        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-////        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
-////
-//////      Loop through until we find a new window handle
-////        for (String windowHandle : driver.getWindowHandles()) {
-////            if(!originalWindow.contentEquals(windowHandle)) {
-////                driver.switchTo().window(windowHandle);
-////                break;
-////            }
-////        }
-////        wait.until(ExpectedConditions.titleIs("Sign in - Google Accounts"));
-////        driver.switchTo().newWindow(WindowType.WINDOW);
-//        return new LoginWithGooglePage(driver);
-//    }
+        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+
+//      Loop through until we find a new window handle
+        for (String windowHandle : driver.getWindowHandles()) {
+            if(!originalWindow.contentEquals(windowHandle)) {
+                driver.switchTo().window(windowHandle);
+                break;
+            }
+        }
+        wait.until(ExpectedConditions.titleIs("Sign in - Google Accounts"));
+        driver.switchTo().newWindow(WindowType.WINDOW);
+        return new LoginWithGooglePage(driver);
+    }*/
+
 }

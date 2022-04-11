@@ -9,7 +9,7 @@ public class LoginWithGooglePage {
         this.driver = driver;
     }
 
-//    public boolean isLoaded(){
-//        return driver.getTitle().equalsIgnoreCase("Sign in - Google Accounts");
-//    }
+    public boolean isLoaded(){
+        return driver.getTitle().equalsIgnoreCase("Sign in - Google Accounts");
+    }
 }

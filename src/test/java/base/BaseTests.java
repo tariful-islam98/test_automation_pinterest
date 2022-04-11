@@ -40,9 +40,9 @@ public class BaseTests {
         }
     }
 
-    @AfterClass
-    public void exitWindow(){
-        driver.quit();
-    }
+//    @AfterClass
+//    public void exitWindow(){
+//        driver.quit();
+//    }
 
 }
