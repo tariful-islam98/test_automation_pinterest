@@ -3,10 +3,12 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 /**
  * loading home page after login
@@ -17,6 +19,8 @@ public class LoggedInHomePage {
     private By logoLink = By.xpath("//a[@aria-label=\"Home\"]");
     private By homeLink = By.xpath("//a/div/div/span[contains(text(), \"Home\")]");
     private By searchBoxLink = By.xpath("//input[@data-test-id=\"search-box-input\"]");
+    private By notificationIconLnk = By.xpath("//button[@aria-label=\"Notifications\"]");
+    private By notificationList = By.xpath("//ul[@data-test-id=\"scrollable-list\"]");
 
     public LoggedInHomePage(WebDriver driver) {
         this.driver = driver;
@@ -46,12 +50,29 @@ public class LoggedInHomePage {
         driver.findElement(homeLink).click();
     }
 
-/**
- * TC_4.3
- */
+    /**
+     * TC_4.3
+     */
     public void searchTag(){
         driver.findElement(searchBoxLink).sendKeys("Cricket");
         driver.findElement(searchBoxLink).sendKeys(Keys.ENTER);
+    }
+
+    /**
+     * TC_4.4
+     * Notifications
+     */
+    public void clickNotificationIcon(){
+        driver.findElement(notificationIconLnk).click();
+//        selectNotification();
+    }
+    public String selectNotification(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(notificationList));
+        WebElement ul = driver.findElement(notificationList);
+        List<WebElement> options = ul.findElements(By.tagName("li"));
+        options.get(0).click();
+        return options.get(0).getAttribute("id");
     }
 
     /**
