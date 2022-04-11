@@ -8,6 +8,9 @@ import pages.SignedUpPage;
 import pages.SignupPage;
 
 public class SignupTests extends BaseTests {
+    /**
+     * TC_3.1
+     */
     @Test
     public void testSuccessfulSignup(){
         SignupPage signup = homePage.clickSignup();

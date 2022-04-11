@@ -13,16 +13,41 @@ import java.time.Duration;
 public class LoggedInHomePage {
     private WebDriver driver;
     private By profileId = By.xpath("//div[@data-test-id=\"header-profile\"]");
+    private By logoLink = By.xpath("//a[@aria-label=\"Home\"]");
+    private By homeLink = By.xpath("//a/div/div/span[contains(text(), \"Home\")]");
 
     public LoggedInHomePage(WebDriver driver) {
         this.driver = driver;
     }
 
     /**
-     *
+     *TC_2.1
      * @return true if logged in successfully
      */
     public boolean getProfile(){
         return driver.findElement(profileId).isDisplayed();
+    }
+
+    /**
+     * TC_4.1
+     * click logo
+     */
+    public void clickLogo(){
+        driver.findElement(logoLink).click();
+    }
+
+    /**
+     * TC_4.2
+     * click Home
+     */
+    public void clickHome(){
+        driver.findElement(homeLink).click();
+    }
+
+    /**
+     * TC_004
+     */
+    public String getCurrentUrl(){
+        return driver.getCurrentUrl();
     }
 }

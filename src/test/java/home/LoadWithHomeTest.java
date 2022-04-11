@@ -1,4 +1,4 @@
-package login;
+package home;
 
 import base.BaseTests;
 import org.testng.Assert;
@@ -6,24 +6,20 @@ import org.testng.annotations.Test;
 import pages.LoggedInHomePage;
 import pages.LoginPage;
 
-public class LoginTests extends BaseTests {
+public class LoadWithHomeTest extends BaseTests {
     /**
-     * TC_2.1
+     * TC_4.2
      */
     @Test
-    public void testSuccessfulLogin(){
+    public void LoadWithHome(){
+        String expectedUrl = "https://www.pinterest.com/";
         LoginPage loginPage = homePage.clickLogin();
 
         loginPage.setUserEmail("vespimerka6@vusra.com");
         loginPage.setPassword("121212A");
 
         LoggedInHomePage loggedInHomePage = loginPage.clickLoginBtn();
-        Assert.assertTrue(loggedInHomePage.getProfile());
-
-        if (loggedInHomePage.getProfile()==true){
-            System.out.println("TestCase(Login): Passed");
-        }else {
-            System.out.println("TestCase(Login): Failed");
-        }
+        loggedInHomePage.clickHome();
+        Assert.assertEquals(loggedInHomePage.getCurrentUrl(), expectedUrl);
     }
 }

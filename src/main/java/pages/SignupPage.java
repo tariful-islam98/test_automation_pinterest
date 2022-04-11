@@ -36,6 +36,11 @@ public class SignupPage {
         driver.findElement(useAgeField).sendKeys(age);
     }
 
+    /**
+     * TC_3.1
+     * login with email and password
+     * @return to Signup completion process
+     */
     public SignedUpPage clickContinueBtn() {
         driver.findElement(signupBtn).click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));

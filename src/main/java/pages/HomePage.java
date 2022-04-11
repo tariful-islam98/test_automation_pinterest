@@ -15,6 +15,7 @@ public class HomePage {
     }
 
     /**
+     * TC_002
      * click login button
      * @return to login page
      */
@@ -24,6 +25,7 @@ public class HomePage {
     }
 
     /**
+     * TC_003
      * click signup button
      * @return to signup page
      */

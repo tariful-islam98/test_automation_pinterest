@@ -10,6 +10,7 @@ import java.time.Duration;
 import java.util.List;
 
 /**
+ * TC_3.1
  * This page is to complete the signup processes.
  */
 public class SignedUpPage {

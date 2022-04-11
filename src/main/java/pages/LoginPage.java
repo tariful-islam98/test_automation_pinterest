@@ -34,6 +34,7 @@ public class LoginPage {
     }
 
     /**
+     * TC_2.1
      * login with email and password
      * @return to Home Page
      */
@@ -45,6 +46,7 @@ public class LoginPage {
     }
 
     /**
+     * TC_2.3
      * Login with google
      */
 //    public LoginWithGooglePage clickGoogleBtn() {//Store the ID of the original window
