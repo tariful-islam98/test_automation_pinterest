@@ -60,6 +60,11 @@ public class LoginPage {
      * TC_2.3
      * Login with google
      */
+    public void clickGoogleBtn(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(googleLoginBtnPath));
+        driver.findElement(googleLoginBtnPath).click();
+    }
     /*public LoginWithGooglePage clickGoogleBtn() {//Store the ID of the original window
         String originalWindow = driver.getWindowHandle();
 

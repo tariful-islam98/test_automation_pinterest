@@ -9,7 +9,8 @@ import pages.LoginWithGooglePage;
 public class LoginWithGoogleTest extends BaseTests {
     @Test
     public void testGoogleLogin(){
-//        LoginPage loginPage = homePage.clickLogin();
+        LoginPage loginPage = homePage.clickLogin();
+        loginPage.clickGoogleBtn();
 //        LoginWithGooglePage loginWithGooglePage = loginPage.clickGoogleBtn();
 //        Assert.assertTrue(loginWithGooglePage.isLoaded());
 //

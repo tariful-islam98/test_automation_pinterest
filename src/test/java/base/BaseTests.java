@@ -27,18 +27,18 @@ public class BaseTests {
         homePage = new HomePage(driver);
     }
     
-    @Test
+/*    @Test
     public void testHomeLoad(){
         String expectedUrl = "https://www.pinterest.com/";
         String currentUrl = driver.getCurrentUrl();
         System.out.println(currentUrl+" "+expectedUrl);
-        Assert.assertEquals(currentUrl, expectedUrl, "Failed Loading");
+        Assert.assertEquals(currentUrl, expectedUrl);
         if (currentUrl.equalsIgnoreCase(expectedUrl)){
             System.out.println("TestCase(Home Page Loading): Passed");
         }else {
             System.out.println("TestCase(Home Page Loading): Failed");
         }
-    }
+    }*/
 
 //    @AfterClass
 //    public void exitWindow(){
