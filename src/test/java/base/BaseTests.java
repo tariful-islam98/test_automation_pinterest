@@ -27,7 +27,7 @@ public class BaseTests {
         homePage = new HomePage(driver);
     }
     
-/*    @Test
+    @Test
     public void testHomeLoad(){
         String expectedUrl = "https://www.pinterest.com/";
         String currentUrl = driver.getCurrentUrl();
@@ -38,11 +38,11 @@ public class BaseTests {
         }else {
             System.out.println("TestCase(Home Page Loading): Failed");
         }
-    }*/
+    }
 
-//    @AfterClass
-//    public void exitWindow(){
-//        driver.quit();
-//    }
+    @AfterClass
+    public void exitWindow(){
+        driver.quit();
+    }
 
 }
