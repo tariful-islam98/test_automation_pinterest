@@ -7,6 +7,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+/**
+ * loading home page after login
+ */
 public class LoggedInHomePage {
     private WebDriver driver;
     private By profileId = By.xpath("//div[@data-test-id=\"header-profile\"]");
@@ -15,6 +18,10 @@ public class LoggedInHomePage {
         this.driver = driver;
     }
 
+    /**
+     *
+     * @return true if logged in successfully
+     */
     public boolean getProfile(){
         return driver.findElement(profileId).isDisplayed();
     }
