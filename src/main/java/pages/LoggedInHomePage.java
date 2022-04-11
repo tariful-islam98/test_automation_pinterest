@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,6 +16,7 @@ public class LoggedInHomePage {
     private By profileId = By.xpath("//div[@data-test-id=\"header-profile\"]");
     private By logoLink = By.xpath("//a[@aria-label=\"Home\"]");
     private By homeLink = By.xpath("//a/div/div/span[contains(text(), \"Home\")]");
+    private By searchBoxLink = By.xpath("//input[@data-test-id=\"search-box-input\"]");
 
     public LoggedInHomePage(WebDriver driver) {
         this.driver = driver;
@@ -42,6 +44,14 @@ public class LoggedInHomePage {
      */
     public void clickHome(){
         driver.findElement(homeLink).click();
+    }
+
+/**
+ * TC_4.3
+ */
+    public void searchTag(){
+        driver.findElement(searchBoxLink).sendKeys("Cricket");
+        driver.findElement(searchBoxLink).sendKeys(Keys.ENTER);
     }
 
     /**
