@@ -21,10 +21,6 @@ public class ProfilePage {
 
     //Share Profile
     private By shareBtn = By.xpath("//button[@aria-label=\"Send Profile\"]");
-    private By emailInputField = By.xpath("//input[@id=\"search\"]");
-    private By contactId = By.xpath("//div[@class=\"RDc zI7 iyn Hsu\"]/div[@role=\"button\"]");
-    private By msgField = By.xpath("//textarea[@id=\"sendObjectMessage\"]");
-    private By sendBtn = By.xpath("//button[@type=\"submit\"]");
 
     public ProfilePage(WebDriver driver) {
         this.driver = driver;
@@ -36,10 +32,11 @@ public class ProfilePage {
         driver.findElement(editBtn).click();
     }
 
-    public void clickShareProfile(){
+    public ShareProfilePage clickShareProfile(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(shareBtn));
         driver.findElement(shareBtn).click();
+        return new ShareProfilePage(driver);
     }
 
     /**
@@ -68,26 +65,6 @@ public class ProfilePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameInputField));
 
         return driver.findElement(lastNameInputField).getAttribute("value");
-    }
-
-    /**
-     * Share contact
-     * @param email - use email id to search contact
-     * @param msg - Write message
-     */
-    public void shareContact(String email, String msg){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(emailInputField));
-        driver.findElement(emailInputField).sendKeys(email);
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(contactId));
-        driver.findElement(contactId).click();
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(msgField));
-        driver.findElement(msgField).sendKeys(msg);
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(sendBtn));
-        driver.findElement(sendBtn).click();
     }
 
     public String getCurrentUrl(){

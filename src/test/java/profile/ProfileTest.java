@@ -17,8 +17,8 @@ public class ProfileTest extends BaseTests {
         loginPage.setUserEmail("vespimerka6@vusra.com");
         loginPage.setPassword("121212A");
 
-        LoggedInHomePage homePage = loginPage.clickLoginBtn();
-        ProfilePage profilePage = homePage.clickProfileIcon();
+        LoggedInHomePage inHomePage = loginPage.clickLoginBtn();
+        ProfilePage profilePage = inHomePage.clickProfileIcon();
 
         String expectedUrl1 = "https://www.pinterest.com/vespimerka6/_saved/";
         Assert.assertEquals(profilePage.getCurrentUrl(),expectedUrl1);

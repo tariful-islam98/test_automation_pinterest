@@ -8,13 +8,13 @@ import pages.LoginPage;
 import pages.ProfilePage;
 import pages.ShareProfilePage;
 
-public class ProfileShareTest extends BaseTests {
+public class ShareByEmail extends BaseTests {
     /**
      * TC_4.6
+     * Share by email
      */
     @Test
-    public void testProfileShare(){
-
+    public void testShareByEmail(){
         LoginPage loginPage = homePage.clickLogin();
         loginPage.setUserEmail("vespimerka6@vusra.com");
         loginPage.setPassword("121212A");
@@ -25,6 +25,7 @@ public class ProfileShareTest extends BaseTests {
 
         Assert.assertTrue(shareProfile.isPopupDisplayed());
 
-        shareProfile.shareContact("abir0dhaka@gmail.com", "Hello");
+        Assert.assertTrue(shareProfile.clickEmailIcon());
+        shareProfile.sharByEmail("abir0dhaka@gmail.com", "Hello");
     }
 }
