@@ -30,6 +30,7 @@ public class LoggedInHomePage {
 
     //help center
     private By helpIconLnk = By.xpath("//button[@aria-label= \"More\"]");
+    private By pinIconLnk = By.xpath("//button[@aria-label= \"Add Pin\"]");
 
     public LoggedInHomePage(WebDriver driver) {
         this.driver = driver;
@@ -108,6 +109,17 @@ public class LoggedInHomePage {
         wait.until(ExpectedConditions.elementToBeClickable(helpIconLnk));
         driver.findElement(helpIconLnk).click();
         return new HelpPage(driver);
+    }
+
+    /**
+     * TC_4.8
+     * Add/create pins
+     */
+    public PinOptionsPage clickPinIcon(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(pinIconLnk));
+        driver.findElement(pinIconLnk).click();
+        return new PinOptionsPage(driver);
     }
 
     /**
