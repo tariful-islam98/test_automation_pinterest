@@ -28,6 +28,9 @@ public class LoggedInHomePage {
     //Message
     private By inboxIconLnk = By.xpath("//button[@aria-label= \"Messages\"]");
 
+    //help center
+    private By helpIconLnk = By.xpath("//button[@aria-label= \"More\"]");
+
     public LoggedInHomePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -94,6 +97,17 @@ public class LoggedInHomePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(profileId));
         driver.findElement(profileId).click();
         return new ProfilePage(driver);
+    }
+
+    /**
+     * TC_4.7
+     * Help Center
+     */
+    public HelpPage clickHelpIcon(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(helpIconLnk));
+        driver.findElement(helpIconLnk).click();
+        return new HelpPage(driver);
     }
 
     /**

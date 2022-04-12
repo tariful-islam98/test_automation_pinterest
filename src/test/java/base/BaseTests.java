@@ -44,5 +44,4 @@ public class BaseTests {
     public void exitWindow(){
         driver.quit();
     }
-
 }
