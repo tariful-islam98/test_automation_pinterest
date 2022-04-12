@@ -18,9 +18,15 @@ public class LoggedInHomePage {
     private By profileId = By.xpath("//div[@data-test-id=\"header-profile\"]");
     private By logoLink = By.xpath("//a[@aria-label=\"Home\"]");
     private By homeLink = By.xpath("//a/div/div/span[contains(text(), \"Home\")]");
+
+    //Search
     private By searchBoxLink = By.xpath("//input[@data-test-id=\"search-box-input\"]");
+
+    //Notification
     private By notificationIconLnk = By.xpath("//button[@aria-label=\"Notifications\"]");
-    private By notificationList = By.xpath("//ul[@data-test-id=\"scrollable-list\"]");
+
+    //Message
+    private By inboxIconLnk = By.xpath("//button[@aria-label= \"Messages\"]");
 
     public LoggedInHomePage(WebDriver driver) {
         this.driver = driver;
@@ -62,17 +68,32 @@ public class LoggedInHomePage {
      * TC_4.4
      * Notifications
      */
-    public void clickNotificationIcon(){
+    public NotificationPage clickNotificationIcon(){
         driver.findElement(notificationIconLnk).click();
-//        selectNotification();
+        return new NotificationPage(driver);
     }
-    public String selectNotification(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(notificationList));
-        WebElement ul = driver.findElement(notificationList);
-        List<WebElement> options = ul.findElements(By.tagName("li"));
-        options.get(0).click();
-        return options.get(0).getAttribute("id");
+
+    /**
+     * TC_4.5
+     * Inbox
+     */
+    public InboxPage clickInboxIcon(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(inboxIconLnk));
+        driver.findElement(inboxIconLnk).click();
+
+        return new InboxPage(driver);
+    }
+
+    /**
+     * TC_4.6
+     * Profile
+     */
+    public ProfilePage clickProfileIcon(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(profileId));
+        driver.findElement(profileId).click();
+        return new ProfilePage(driver);
     }
 
     /**

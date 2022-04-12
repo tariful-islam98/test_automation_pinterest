@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoggedInHomePage;
 import pages.LoginPage;
+import pages.NotificationPage;
 
 public class NotificationTest extends BaseTests {
     /**
@@ -18,8 +19,8 @@ public class NotificationTest extends BaseTests {
         loginPage.setPassword("121212A");
 
         LoggedInHomePage loggedInHomePage = loginPage.clickLoginBtn();
-        loggedInHomePage.clickNotificationIcon();
-        String expectedUrl = "https://www.pinterest.com/news_hub/"+loggedInHomePage.selectNotification();
+        NotificationPage notificationPage = loggedInHomePage.clickNotificationIcon();
+        String expectedUrl = "https://www.pinterest.com/news_hub/"+notificationPage.selectNotification();
 
         Assert.assertEquals(loggedInHomePage.getCurrentUrl(), expectedUrl);
     }
