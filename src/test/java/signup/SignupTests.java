@@ -15,7 +15,7 @@ public class SignupTests extends BaseTests {
     public void testSuccessfulSignup(){
         SignupPage signup = homePage.clickSignup();
 
-        signup.setUserEmail("vespimerka6@vusra.com");
+        signup.setUserEmail("espimerka7@vusra.com");
         signup.setPassword("121212A");
         signup.setAge(""+23);
 

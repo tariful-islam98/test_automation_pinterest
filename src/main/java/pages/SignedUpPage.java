@@ -57,15 +57,12 @@ public class SignedUpPage {
      * select 5 topics to go to the next step
      */
     public void selectTopic() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-test-id=\"nux-picker-topic\"]")));
         List<WebElement> elements = driver.findElements(By.xpath("//div[@data-test-id=\"nux-picker-topic\"]"));
 
-        int i = 0;
-        for (WebElement topic : elements) {
-            if (i > 4) {
-                break;
-            }
-            topic.click();
-            i++;
+        for (int i=0; i<5; i++){
+            elements.get(i).click();
         }
     }
 
